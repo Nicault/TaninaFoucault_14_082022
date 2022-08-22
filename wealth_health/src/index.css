@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+
+}
+
+body, #root {
+  margin: 0 auto;
+  background-color: rgb(249, 249, 253);
+}
+
+.flexColumn{
+  display: flex;
+  flex-direction: column;
+}
+
+.homeHeader{
+  text-align: center;
+  margin: 50px 0;
+}
+
+.createForm{
+  width: 50%;
+  margin: 0 auto;
+
+
+  background-color: white;
+  padding: 60px;
+  border-radius: 4px;
+  box-shadow: rgba(60, 66, 87, 0.12) 0px 7px 14px 0px, rgba(0, 0, 0, 0.12) 0px 3px 6px 0px;
+}
+
+.formTitle {
+  text-align: center;
+}
+
+.nameDiv{
+  display: flex ;
+  justify-content: space-between;
+
+}
+
+.adressForm {
+  border-radius: 4px;
+  padding: 20px;
+  /* margin: 0 -20px; */
+
+}
+
+label, input {
+  margin: 5px 0;
+  outline: none;
+}
+
+form > button {
+  cursor: pointer;
+  margin-top: 20px;
+  border: unset;
+  border-radius: 4px;
+  background-color:  rgb(53, 57, 63);
+  color: white;
+
+  height: 30px;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 40%;
+  padding: 20px;;
+  background-color: white;
+  border-radius: 10px;
+
+  box-shadow: rgba(60, 66, 87, 0.12) 0px 7px 14px 0px, rgba(0, 0, 0, 0.12) 0px 3px 6px 0px;
+
+}
+
+.closeModalButton {
+  margin-top: 0;
+
+  position: absolute;
+  top: -10px;
+  right: -10px;
+
+  height: 30px;
+  width: 30px;
+  border: none;
+  border-radius: 100%;
+  background-color: white;
+}
+
+.closeModalIcon {
+  height: 30px;
+  width: 30px;
+  color: black;
+}
+
+.dateArea {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.employeesPage{
+  width: 80%;
+  margin: 30px auto;
+}
+
+.employeesPage h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.table{
+  width: 100%;
+  border-spacing:0 10px;
+}
+
+.filters{
+  display: flex;
+  justify-content: space-between;
+}
+.showEntries{
+
+}
+
+.globalFilter{
+
+}
+
+.tableTitle{
+  background-color: rgb(53, 57, 63);
+  color: white;
+  text-align: left;
+  padding: 25px 25px 25px 10px;
+
+}
+
+/* .tableRow:nth-child(odd) {
+  background-color: rgb(243, 243, 243);
+} */
+/* .tableRow:hover {
+  background-color: rgb(226, 225, 225);
+} */
+
+.tableRow {
+  background-color: white;
+}
+
+.tableCell{
+  height: 80px;
+  padding: 0 25px 0 10px;
+}
