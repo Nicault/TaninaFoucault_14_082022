@@ -6,6 +6,7 @@ function SaveButton({ setIsOpen }) {
   }
   return (
     <button
+      className="saveButton"
       onClick={(e) => {
         e.preventDefault()
         openModal()

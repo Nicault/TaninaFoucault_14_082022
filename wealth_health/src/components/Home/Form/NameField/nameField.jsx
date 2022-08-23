@@ -8,7 +8,7 @@ function NameField() {
         {/* <label>First Name</label> */}
         <input type="text" placeholder="First Name" />
         {/* <label>Last Name</label> */}
-        <input type="text" />
+        <input type="text" placeholder="Last Name" />
       </div>
     </fieldset>
   )

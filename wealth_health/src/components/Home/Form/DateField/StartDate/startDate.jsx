@@ -2,33 +2,29 @@ import React from 'react'
 import { useState } from 'react'
 
 import DatePicker from '../DatePicker/datePicker'
-import CalendarIcon from '../../../../../utils/Icons/calendarIcon.jsx'
+import CalendarButton from '../CalendarButton/calendarButton.jsx'
 
 function StartDate() {
   const [isShown, setIsShown] = useState(false)
-  const [date, setDate] = useState('MM/DD/YYY')
+  const [date, setDate] = useState('')
+
+  const handleChange = (e) => {
+    setDate(e.target.value)
+  }
 
   return (
-    <>
+    <div className="startDate">
       <label>Start date</label>
       <input
+        className="dateInput"
+        placeholder="MM/DD/YYYY"
         type="text"
-        onFocus={() => {
-          setIsShown(true)
-        }}
-        // onBlur={() => {
-        //   setIsShown(false)
-        // }}
-        onChange={() => {
-          setDate(date)
-        }}
+        onChange={handleChange}
         value={date}
-
-        //rajouter ici un onchange pour changer la value
       />
-      <CalendarIcon />
-      <DatePicker isShown={isShown} setDate={setDate} />
-    </>
+      <CalendarButton setIsShown={setIsShown} />
+      <DatePicker isShown={isShown} setDate={setDate} setIsShown={setIsShown} />
+    </div>
   )
 }
 

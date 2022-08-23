@@ -2,34 +2,29 @@ import React from 'react'
 import { useState } from 'react'
 
 import DatePicker from '../DatePicker/datePicker'
-import CalendarIcon from '../../../../../utils/Icons/calendarIcon'
+import CalendarButton from '../CalendarButton/calendarButton'
 
 function BirthDate() {
   const [isShown, setIsShown] = useState(false)
-  const [date, setDate] = useState('MM/DD/YYY')
-  //   console.log(date)
+  const [date, setDate] = useState('')
+
+  const handleChange = (e) => {
+    setDate(e.target.value)
+  }
 
   return (
-    <>
-      <label>Date of Birth</label>
+    <div className="birthDate">
+      <label>Date of birth</label>
       <input
+        className="dateInput"
+        placeholder="MM/DD/YYYY"
         type="text"
-        onFocus={() => {
-          setIsShown(true)
-        }}
-        // onBlur={() => {
-        //   setIsShown(false)
-        // }}
-        onChange={() => {
-          setDate(date)
-        }}
+        onChange={handleChange}
         value={date}
-
-        //rajouter ici un onchange pour changer la value
       />
-      <CalendarIcon />
-      <DatePicker isShown={isShown} setDate={setDate} />
-    </>
+      <CalendarButton setIsShown={setIsShown} />
+      <DatePicker setDate={setDate} isShown={isShown} setIsShown={setIsShown} />
+    </div>
   )
 }
 

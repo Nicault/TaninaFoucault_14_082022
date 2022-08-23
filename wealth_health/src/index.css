@@ -25,7 +25,7 @@ body, #root {
 }
 
 .createForm{
-  width: 50%;
+  width: 600px;
   margin: 0 auto;
 
 
@@ -37,36 +37,75 @@ body, #root {
 
 .formTitle {
   text-align: center;
+  margin-bottom: 30px;;
 }
 
-.nameDiv{
-  display: flex ;
-  justify-content: space-between;
-
+fieldset{
+  border: none;
+  margin-bottom: 20px;
 }
-
-.adressForm {
-  border-radius: 4px;
-  padding: 20px;
-  /* margin: 0 -20px; */
-
-}
-
 label, input {
   margin: 5px 0;
   outline: none;
 }
+input{
+  height: 50px;
+  padding: 0 20px;
+}
 
-form > button {
+.saveButton {
+  align-self: center;
   cursor: pointer;
   margin-top: 20px;
   border: unset;
-  border-radius: 4px;
+  border-radius: 10px;
   background-color:  rgb(53, 57, 63);
   color: white;
 
-  height: 30px;
+  height: 40px;
+  width: 100px;
 }
+
+.nameDiv{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.adressForm {
+  border-radius: 4px;
+  /* margin: 0 -20px; */
+}
+
+
+.dateForm{
+  display: flex;
+  flex-direction: column;
+}
+.birthDate, .startDate{
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+}
+.calendarButton{
+  background: transparent;
+  border: none !important;
+}
+.calendarIcon {
+  cursor: pointer;
+  position: absolute;
+  height: 20px;
+  right: 15px;
+  bottom: 20px;
+}
+.calendar{
+  position: absolute;
+  right: -30px;
+  top: 0;
+  z-index: 1000;
+}
+
 
 .modal {
   position: absolute;
@@ -98,6 +137,7 @@ form > button {
 }
 
 .closeModalIcon {
+  cursor: pointer;
   height: 30px;
   width: 30px;
   color: black;
@@ -127,13 +167,13 @@ form > button {
   display: flex;
   justify-content: space-between;
 }
-.showEntries{
+/* .showEntries{
 
 }
 
 .globalFilter{
 
-}
+} */
 
 .tableTitle{
   background-color: rgb(53, 57, 63);

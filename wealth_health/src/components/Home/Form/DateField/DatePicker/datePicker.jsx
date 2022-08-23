@@ -6,16 +6,19 @@ import Moment from 'moment'
 
 import 'react-datepicker/dist/react-datepicker.css'
 
-function DatePicker({ isShown, setDate }) {
+function DatePicker({ setDate, isShown, setIsShown }) {
   return (
-    <>
+    <div className="calendar">
       {isShown && (
         <Calendar
-          onChange={(date) => setDate(Moment(date).format('MM/DD/YYYY'))}
+          onChange={(date) => {
+            setDate(Moment(date).format('MM/DD/YYYY'))
+            setIsShown(false)
+          }}
           locale={'en'}
         />
       )}
-    </>
+    </div>
   )
 }
 

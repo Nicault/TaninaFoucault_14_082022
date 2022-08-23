@@ -6,11 +6,11 @@ function AdressField() {
     <fieldset className="adressForm flexColumn">
       <legend>Address</legend>
 
-      <label>Street</label>
-      <input type="text" />
+      {/* <label>Street</label> */}
+      <input type="text" placeholder="Street" />
 
-      <label>City</label>
-      <input type="text" />
+      {/* <label>City</label> */}
+      <input type="text" placeholder="City" />
 
       <label>State</label>
       <select>
@@ -19,8 +19,8 @@ function AdressField() {
         ))}
       </select>
 
-      <label>Zip Code</label>
-      <input type="number" />
+      {/* <label>Zip Code</label> */}
+      <input type="text" placeholder="Zip Code" />
     </fieldset>
   )
 }
