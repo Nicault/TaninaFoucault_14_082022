@@ -11,7 +11,7 @@ function DatePicker({ setDate, isShown, setIsShown }) {
     <div className="calendar">
       {isShown && (
         <Calendar
-          onChange={(date) => {
+          onChange={(date, e) => {
             setDate(Moment(date).format('MM/DD/YYYY'))
             setIsShown(false)
           }}

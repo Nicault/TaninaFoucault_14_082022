@@ -11,10 +11,12 @@ import TableBody from './TableBody/tableBody'
 import GlobalFilter from './GlobalFilter/globalFilter'
 import PageSize from './Pagination/pageSize'
 import Pagination from './Pagination/pagination'
-import Data from './Datas/data'
+// import Data from './Datas/data'
 import Columns from './Datas/columns'
 
 function Table() {
+  const Data = JSON.parse(localStorage.getItem('employees')) || []
+
   const columns = React.useMemo(() => Columns, [])
   const data = React.useMemo(() => Data, [])
   //   const tableInstance = useTable({ columns, data }, useSortBy)

@@ -3,12 +3,12 @@ import React from 'react'
 import BirthDate from './BirthDate/birthDate'
 import StartDate from './StartDate/startDate'
 
-function DateField() {
+function DateField({ handleChange }) {
   return (
     <fieldset className="dateForm">
       <legend>Dates</legend>
-      <BirthDate />
-      <StartDate />
+      <BirthDate handleChange={handleChange} />
+      <StartDate handleChange={handleChange} />
     </fieldset>
   )
 }

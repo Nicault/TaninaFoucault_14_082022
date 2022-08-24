@@ -1,26 +1,41 @@
 import React from 'react'
 import States from '../../../../utils/Datas/states'
 
-function AdressField() {
+function AdressField({ handleChange }) {
   return (
     <fieldset className="adressForm flexColumn">
       <legend>Address</legend>
 
       {/* <label>Street</label> */}
-      <input type="text" placeholder="Street" />
+      <input
+        name="street"
+        type="text"
+        placeholder="Street"
+        onChange={handleChange}
+      />
 
       {/* <label>City</label> */}
-      <input type="text" placeholder="City" />
+      <input
+        name="city"
+        type="text"
+        placeholder="City"
+        onChange={handleChange}
+      />
 
       <label>State</label>
-      <select>
+      <select name="state" onChange={handleChange}>
         {States.map((element) => (
           <option key={element.name}>{element.name}</option>
         ))}
       </select>
 
       {/* <label>Zip Code</label> */}
-      <input type="text" placeholder="Zip Code" />
+      <input
+        name="zipCode"
+        type="text"
+        placeholder="Zip Code"
+        onChange={handleChange}
+      />
     </fieldset>
   )
 }

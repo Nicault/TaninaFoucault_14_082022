@@ -4,11 +4,11 @@ import { useState } from 'react'
 import DatePicker from '../DatePicker/datePicker'
 import CalendarButton from '../CalendarButton/calendarButton.jsx'
 
-function StartDate() {
+function StartDate({ handleChange }) {
   const [isShown, setIsShown] = useState(false)
   const [date, setDate] = useState('')
 
-  const handleChange = (e) => {
+  const changeDate = (e) => {
     setDate(e.target.value)
   }
 
@@ -16,10 +16,14 @@ function StartDate() {
     <div className="startDate">
       <label>Start date</label>
       <input
+        name="startDate"
         className="dateInput"
         placeholder="MM/DD/YYYY"
         type="text"
-        onChange={handleChange}
+        onChange={(e) => {
+          changeDate(e)
+          handleChange(e)
+        }}
         value={date}
       />
       <CalendarButton setIsShown={setIsShown} />

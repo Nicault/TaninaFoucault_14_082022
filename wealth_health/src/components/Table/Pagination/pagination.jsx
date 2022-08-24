@@ -10,7 +10,7 @@ function Pagination({
   // pageCount,
   pageOptions,
 }) {
-  console.log(pageOptions)
+  // console.log(pageOptions)
 
   return (
     <div className="pagination">
