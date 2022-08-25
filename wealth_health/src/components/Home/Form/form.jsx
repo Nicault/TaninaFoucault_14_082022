@@ -23,21 +23,25 @@ function Form() {
     department: '',
   })
 
+  // console.log(profile)
+
   function handleChange(e) {
     const { name, value } = e.target
     fillProfile((prev) => ({ ...prev, [name]: value }))
   }
 
   return (
-    <form className="createForm flexColumn">
-      <h2 className="formTitle">Create Employee</h2>
-      <NameField handleChange={handleChange} />
-      <DateField handleChange={handleChange} />
-      <AdressField handleChange={handleChange} />
-      <DepartmentField handleChange={handleChange} />
-      <SaveButton setIsOpen={setIsOpen} profile={profile} />
-      <ValidationModal modalIsOpen={modalIsOpen} setIsOpen={setIsOpen} />
-    </form>
+    <div className="homeForm">
+      <form className="createForm flexColumn">
+        <h2 className="formTitle">Create Employee</h2>
+        <NameField handleChange={handleChange} />
+        <DateField handleChange={handleChange} fillProfile={fillProfile} />
+        <AdressField handleChange={handleChange} />
+        <DepartmentField handleChange={handleChange} />
+        <SaveButton setIsOpen={setIsOpen} profile={profile} />
+        <ValidationModal modalIsOpen={modalIsOpen} setIsOpen={setIsOpen} />
+      </form>
+    </div>
   )
 }
 

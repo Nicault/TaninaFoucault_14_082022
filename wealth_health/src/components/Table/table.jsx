@@ -11,14 +11,29 @@ import TableBody from './TableBody/tableBody'
 import GlobalFilter from './GlobalFilter/globalFilter'
 import PageSize from './Pagination/pageSize'
 import Pagination from './Pagination/pagination'
-// import Data from './Datas/data'
 import Columns from './Datas/columns'
 
 function Table() {
-  const Data = JSON.parse(localStorage.getItem('employees')) || []
-
+  const employees = JSON.parse(localStorage.getItem('employees'))
   const columns = React.useMemo(() => Columns, [])
-  const data = React.useMemo(() => Data, [])
+  const data = React.useMemo(() => employees, [])
+  // const data = React.useMemo(
+  //   () => [
+  //     {
+  //       firstName: 'Jean Claude',
+  //       lastName: 'Duss',
+  //       startDate: '2001-01-08',
+  //       dateOfBirth: '1974-08-12',
+  //       street: 'fgdfgdfg',
+  //       city: 'fdgdfgdfg',
+  //       state: '??',
+  //       zipCode: '42000',
+  //       department: 'Haute Loire',
+  //     },
+  //   ],
+  //   []
+  // )
+
   //   const tableInstance = useTable({ columns, data }, useSortBy)
 
   const {
@@ -26,7 +41,7 @@ function Table() {
     getTableBodyProps,
     headerGroups,
     prepareRow,
-    // rows,
+    //rows,
     page, // Instead of using 'rows', we'll use page,
     // which has only the rows for the active page
 
@@ -42,14 +57,7 @@ function Table() {
     state: { pageIndex, pageSize, globalFilter },
     preGlobalFilteredRows,
     setGlobalFilter,
-  } = useTable(
-    { columns, data, initialState: { pageIndex: 0 } },
-    useGlobalFilter,
-    useSortBy,
-    usePagination
-  )
-
-  //   const firstPageRows = rows.slice(0, 10)
+  } = useTable({ columns, data }, useGlobalFilter, useSortBy, usePagination)
 
   return (
     <main>
@@ -74,20 +82,22 @@ function Table() {
         />
       </table>
 
-      <div>
-        Showing {page.length} of {Data.length} entries
-      </div>
+      <div className="bottomLegend">
+        <div>
+          Showing {page.length} of {data.length} entries
+        </div>
 
-      <Pagination
-        pageIndex={pageIndex}
-        gotoPage={gotoPage}
-        previousPage={previousPage}
-        nextPage={nextPage}
-        canPreviousPage={canPreviousPage}
-        canNextPage={canNextPage}
-        // pageCount={pageCount}
-        pageOptions={pageOptions}
-      />
+        <Pagination
+          pageIndex={pageIndex}
+          gotoPage={gotoPage}
+          previousPage={previousPage}
+          nextPage={nextPage}
+          canPreviousPage={canPreviousPage}
+          canNextPage={canNextPage}
+          // pageCount={pageCount}
+          pageOptions={pageOptions}
+        />
+      </div>
     </main>
   )
 }

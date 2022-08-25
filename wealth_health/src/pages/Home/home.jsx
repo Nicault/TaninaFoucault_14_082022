@@ -5,7 +5,7 @@ import Form from '../../components/Home/Form/form'
 
 function Home() {
   return (
-    <section>
+    <section className="homePage">
       <Header />
       <Form />
     </section>

@@ -4,7 +4,7 @@ import { useState } from 'react'
 import DatePicker from '../DatePicker/datePicker'
 import CalendarButton from '../CalendarButton/calendarButton.jsx'
 
-function StartDate({ handleChange }) {
+function DateInput({ handleChange, name, label, fillProfile }) {
   const [isShown, setIsShown] = useState(false)
   const [date, setDate] = useState('')
 
@@ -13,10 +13,10 @@ function StartDate({ handleChange }) {
   }
 
   return (
-    <div className="startDate">
-      <label>Start date</label>
+    <div className={name}>
+      <label>{label}</label>
       <input
-        name="startDate"
+        name={name}
         className="dateInput"
         placeholder="MM/DD/YYYY"
         type="text"
@@ -27,9 +27,16 @@ function StartDate({ handleChange }) {
         value={date}
       />
       <CalendarButton setIsShown={setIsShown} />
-      <DatePicker isShown={isShown} setDate={setDate} setIsShown={setIsShown} />
+      <DatePicker
+        name={name}
+        setDate={setDate}
+        isShown={isShown}
+        setIsShown={setIsShown}
+        onClickOutside={() => setIsShown(false)}
+        fillProfile={fillProfile}
+      />
     </div>
   )
 }
 
-export default StartDate
+export default DateInput

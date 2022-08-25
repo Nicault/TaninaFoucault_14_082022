@@ -1,5 +1,9 @@
 import React from 'react'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronUp } from '@fortawesome/free-solid-svg-icons'
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
+
 function TableHead({ headerGroups }) {
   return (
     <thead className="tableHead">
@@ -20,18 +24,30 @@ function TableHead({ headerGroups }) {
                 // Apply the header cell props
 
                 <th
-                  className="tableTitle"
+                  className="tableHeadCell"
                   {...column.getHeaderProps(column.getSortByToggleProps())}
                 >
-                  {column.render('Header')}
-                  {/* Add a sort direction indicator */}
-                  <span>
-                    {column.isSorted
-                      ? column.isSortedDesc
-                        ? ' 🔽'
-                        : ' 🔼'
-                      : ''}
-                  </span>
+                  <div className="tableDiv">
+                    {column.render('Header')}
+                    {/* Add a sort direction indicator */}
+                    {/* <span className="sortingChevron"> */}
+                    {column.isSorted ? (
+                      column.isSortedDesc ? (
+                        <FontAwesomeIcon
+                          icon={faChevronDown}
+                          className="tableIcon"
+                        />
+                      ) : (
+                        <FontAwesomeIcon
+                          icon={faChevronUp}
+                          className="tableIcon"
+                        />
+                      )
+                    ) : (
+                      <span className="tableIcon"></span>
+                    )}
+                    {/* </span> */}
+                  </div>
                 </th>
               ))
             }
