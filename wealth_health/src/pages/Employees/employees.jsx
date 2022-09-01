@@ -8,7 +8,9 @@ function Employees() {
     <section className="employeesPage">
       <h1>Current Employees</h1>
       <Table />
-      <Link to="/">Home</Link>
+      <div className="homeLink">
+        <Link to="/">Home</Link>
+      </div>
     </section>
   )
 }

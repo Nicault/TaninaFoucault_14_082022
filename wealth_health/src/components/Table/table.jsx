@@ -59,6 +59,9 @@ function Table() {
     setGlobalFilter,
   } = useTable({ columns, data }, useGlobalFilter, useSortBy, usePagination)
 
+  const firstDisplayedData = pageIndex * pageSize + 1
+  const lastDisplayedData = firstDisplayedData + pageSize - 1
+
   return (
     <main>
       <div className="filters">
@@ -84,7 +87,10 @@ function Table() {
 
       <div className="bottomLegend">
         <div>
-          Showing {page.length} of {data.length} entries
+          Showing {firstDisplayedData} to
+          {lastDisplayedData > data.length
+            ? data.length
+            : lastDisplayedData} of {data.length} entries
         </div>
 
         <Pagination

@@ -14,26 +14,33 @@ function Pagination({
 
   return (
     <div className="pagination">
-      <span>
+      <div>
         Page{' '}
         <strong>
           {pageIndex + 1} of {pageOptions.length}
         </strong>{' '}
-      </span>
-      <button onClick={() => previousPage()} disabled={!canPreviousPage}>
-        Previous
-      </button>{' '}
-      {pageOptions.map(
-        (slot) =>
-          slot + 1 <= pageOptions.length && (
-            <button key={slot} onClick={() => gotoPage(slot)}>
-              {slot + 1}
-            </button>
-          )
-      )}
-      <button onClick={() => nextPage()} disabled={!canNextPage}>
-        Next
-      </button>{' '}
+      </div>
+      <div>
+        {canPreviousPage && (
+          <button onClick={() => previousPage()}>Previous</button>
+        )}
+        {pageOptions.map(
+          (slot) =>
+            slot + 1 <= pageOptions.length && (
+              <button
+                key={slot}
+                className="pageButton"
+                onClick={(e) => {
+                  gotoPage(slot)
+                  // e.target.classList.add('activePage')
+                }}
+              >
+                {slot + 1}
+              </button>
+            )
+        )}
+        {canNextPage && <button onClick={() => nextPage()}>Next</button>}
+      </div>
     </div>
   )
 }

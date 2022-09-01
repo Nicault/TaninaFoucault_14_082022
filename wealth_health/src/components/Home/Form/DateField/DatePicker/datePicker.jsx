@@ -14,6 +14,7 @@ function DatePicker({
   fillProfile,
   name,
   onClickOutside,
+  setInputIsWrong,
 }) {
   const ref = useRef(null)
   CloseOnClickOutside(onClickOutside, ref)
@@ -23,11 +24,12 @@ function DatePicker({
       {isShown && (
         <Calendar
           onChange={(date) => {
-            setDate(Moment(date).format('MM/DD/YYYY'))
+            setDate(Moment(date).format('YYYY-MM-DD'))
             fillProfile((prev) => ({
               ...prev,
-              [name]: Moment(date).format('MM/DD/YYYY'),
+              [name]: Moment(date).format('YYYY-MM-DD'),
             }))
+            setInputIsWrong((prev) => ({ ...prev, [name]: false }))
             setIsShown(false)
           }}
           locale={'en'}

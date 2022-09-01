@@ -133,7 +133,7 @@ input{
   left: 50%;
   transform: translate(-50%, -50%);
 
-  width: 40%;
+  width: 400px;
   padding: 20px;;
   background-color: white;
   border-radius: 10px;
@@ -241,6 +241,53 @@ input{
 .bottomLegend{
   margin-top: 20px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
 }
+
+.pagination{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+}
+.pagination button {
+  cursor: pointer;
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 8px 16px;
+}
+
+.pagination button:first-of-type {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.pagination button:last-of-type {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.activePage{
+  background-color: rgb(53, 57, 63) !important;
+  color: white;
+}
+
+.homeLink{
+  margin-top: 20px;
+}
+
+
+
+
+
+
+
+
+.react-calendar__tile--now {
+  background:  rgb(53, 57, 63) !important;
+  color: white;
+}
+
+.attention{border: 1px solid red;}

@@ -1,10 +1,15 @@
 import React from 'react'
 
-function DepartmentField({ handleChange }) {
+function DepartmentField({ handleChange, inputIsWrong }) {
   return (
     <fieldset>
       <label>Department</label>
-      <select name="department" id="department" onChange={handleChange}>
+      <select
+        name="department"
+        className={inputIsWrong.department ? 'attention' : ''}
+        id="department"
+        onChange={handleChange}
+      >
         <option>Sales</option>
         <option>Marketing</option>
         <option>Engineering</option>

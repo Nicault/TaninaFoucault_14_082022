@@ -3,8 +3,17 @@ import { useState } from 'react'
 
 import DatePicker from '../DatePicker/datePicker'
 import CalendarButton from '../CalendarButton/calendarButton.jsx'
+// import Moment from 'moment'
+// import MomentInput from 'react-moment-input'
 
-function DateInput({ handleChange, name, label, fillProfile }) {
+function DateInput({
+  handleChange,
+  inputIsWrong,
+  setInputIsWrong,
+  name,
+  label,
+  fillProfile,
+}) {
   const [isShown, setIsShown] = useState(false)
   const [date, setDate] = useState('')
 
@@ -15,11 +24,25 @@ function DateInput({ handleChange, name, label, fillProfile }) {
   return (
     <div className={name}>
       <label>{label}</label>
+      {/* <MomentInput
+        max={Moment().add(5, 'days')}
+        min={Moment()}
+        format="YYYY-MM-DD"
+        options={true}
+        readOnly={false}
+        icon={false}
+        onChange={(date) => {
+          console.log(date)
+        }}
+      /> */}
       <input
         name={name}
-        className="dateInput"
-        placeholder="MM/DD/YYYY"
-        type="text"
+        // className='dateInput'
+        className={inputIsWrong[name] ? 'attention' : ''}
+        placeholder="YYYY-MM-DD"
+        // type="text"
+        type="date"
+        onClick={(e) => e.preventDefault()}
         onChange={(e) => {
           changeDate(e)
           handleChange(e)
@@ -34,6 +57,7 @@ function DateInput({ handleChange, name, label, fillProfile }) {
         setIsShown={setIsShown}
         onClickOutside={() => setIsShown(false)}
         fillProfile={fillProfile}
+        setInputIsWrong={setInputIsWrong}
       />
     </div>
   )

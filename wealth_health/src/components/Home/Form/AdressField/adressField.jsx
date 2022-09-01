@@ -1,7 +1,7 @@
 import React from 'react'
 import States from '../../../../utils/Datas/states'
 
-function AdressField({ handleChange }) {
+function AdressField({ handleChange, inputIsWrong }) {
   return (
     <fieldset className="adressForm flexColumn">
       <legend>Address</legend>
@@ -9,6 +9,7 @@ function AdressField({ handleChange }) {
       {/* <label>Street</label> */}
       <input
         name="street"
+        className={inputIsWrong.street ? 'attention' : ''}
         type="text"
         placeholder="Street"
         onChange={handleChange}
@@ -17,13 +18,18 @@ function AdressField({ handleChange }) {
       {/* <label>City</label> */}
       <input
         name="city"
+        className={inputIsWrong.city ? 'attention' : ''}
         type="text"
         placeholder="City"
         onChange={handleChange}
       />
 
       <label>State</label>
-      <select name="state" onChange={handleChange}>
+      <select
+        name="state"
+        className={inputIsWrong.state ? 'attention' : ''}
+        onChange={handleChange}
+      >
         {States.map((element) => (
           <option key={element.name}>{element.name}</option>
         ))}
@@ -32,6 +38,7 @@ function AdressField({ handleChange }) {
       {/* <label>Zip Code</label> */}
       <input
         name="zipCode"
+        className={inputIsWrong.zipCode ? 'attention' : ''}
         type="text"
         placeholder="Zip Code"
         onChange={handleChange}
