@@ -234,6 +234,11 @@ input{
   height: 40px;
 }
 
+.tableHeadTitles, .tableRow{
+  /* width: 100%; */
+  margin-bottom: 6px;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);}
 
 .tableHeadCell{
   background-color: rgb(53, 57, 63);
@@ -267,6 +272,8 @@ input{
 .tableCell{
   height: 80px;
   padding: 0 25px 0 10px;
+  display: flex;
+  align-items: center;
 }
 
 .bottomLegend{

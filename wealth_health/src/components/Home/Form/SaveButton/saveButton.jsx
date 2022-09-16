@@ -2,8 +2,6 @@ import React from 'react'
 import { addEmployee } from '../../../../utils/Datas/dataManager'
 
 function SaveButton({ profile, setIsOpen, handleCheck }) {
-  // console.log(profile)
-
   function openModal() {
     setIsOpen(true)
   }

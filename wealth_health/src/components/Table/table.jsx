@@ -67,6 +67,8 @@ function Table({ employees }) {
   const firstDisplayedData = pageIndex * pageSize + 1
   const lastDisplayedData = firstDisplayedData + pageSize - 1
 
+  // console.log(data[0].state)
+
   return (
     <main>
       <div className="filters">

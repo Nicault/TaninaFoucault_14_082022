@@ -8,11 +8,11 @@ function AdressField({ handleChange, inputIsWrong }) {
   for (let i = 0; i < States.length; i++) {
     List.push(States[i].name)
   }
+
   return (
     <fieldset className="adressForm flexColumn">
       <legend>Address</legend>
 
-      {/* <label>Street</label> */}
       <input
         name="street"
         className={inputIsWrong.street ? 'attention' : ''}
@@ -21,7 +21,6 @@ function AdressField({ handleChange, inputIsWrong }) {
         onChange={handleChange}
       />
 
-      {/* <label>City</label> */}
       <input
         name="city"
         className={inputIsWrong.city ? 'attention' : ''}
@@ -29,17 +28,6 @@ function AdressField({ handleChange, inputIsWrong }) {
         placeholder="City"
         onChange={handleChange}
       />
-
-      {/* <label>State</label>
-      <select
-        name="state"
-        className={inputIsWrong.state ? 'attention' : ''}
-        onChange={handleChange}
-      >
-        {States.map((element) => (
-          <option key={element.name}>{element.name}</option>
-        ))}
-      </select> */}
 
       <DropdownComponent
         name="state"
@@ -49,7 +37,6 @@ function AdressField({ handleChange, inputIsWrong }) {
         list={List}
       />
 
-      {/* <label>Zip Code</label> */}
       <input
         name="zipCode"
         className={inputIsWrong.zipCode ? 'attention' : ''}
