@@ -37,10 +37,8 @@ function DateInput({
       /> */}
       <input
         name={name}
-        // className='dateInput'
         className={inputIsWrong[name] ? 'attention' : ''}
         placeholder="YYYY-MM-DD"
-        // type="text"
         type="date"
         onClick={(e) => e.preventDefault()}
         onChange={(e) => {

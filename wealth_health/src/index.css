@@ -14,7 +14,11 @@ html {
   box-sizing: border-box;
   text-decoration: none;
   font-family: 'Roboto', sans-serif;
+  /* color: black; */
+}
 
+a {
+  color: black;
 }
 
 body, #root {
@@ -30,13 +34,15 @@ body, #root {
 }
 
 .homeHeader{
-  text-align: center;
+  margin: auto;
+  /* padding: 0 30px; */
   height: 10vh;
+  width: 600px;
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  /* margin: 50px 0; */
+  justify-content: space-between;
+  align-items: center;
 }
+
 
 .homeForm{
   height: 85vh;
@@ -50,7 +56,7 @@ body, #root {
 
 
   background-color: white;
-  padding: 40px 60px;
+  padding: 30px 50px;
   border-radius: 4px;
   box-shadow: rgba(60, 66, 87, 0.12) 0px 7px 14px 0px, rgba(0, 0, 0, 0.12) 0px 3px 6px 0px;
 }
@@ -76,7 +82,7 @@ input{
 .saveButton {
   align-self: center;
   cursor: pointer;
-  margin-top: 20px;
+  /* margin-top: 10px; */
   border: unset;
   border-radius: 10px;
   background-color:  rgb(53, 57, 63);
@@ -96,7 +102,6 @@ input{
   border-radius: 4px;
   /* margin: 0 -20px; */
 }
-
 
 .dateForm{
   display: flex;
@@ -124,6 +129,11 @@ input{
   right: -30px;
   top: 0;
   z-index: 1000;
+}
+
+.departmentField{
+  display: flex;
+  flex-direction: column;
 }
 
 
@@ -171,12 +181,29 @@ input{
 
 .employeesPage{
   width: 80%;
+  max-width: 1600px;
   margin: 30px auto;
 }
 
 .employeesPage h1 {
   text-align: center;
+}
+
+.employeesHeader{
   margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 972px;
+
+}
+
+.homeLink{
+  text-align: right;
+}
+
+.backHomeIcon{
+  transform: rotate(180deg);
 }
 
 .employeesPage main {
@@ -189,9 +216,12 @@ input{
 }
 
 .filters{
+  min-width: 972px;
+
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+  margin-bottom: 20px;
 }
 .showEntries select{
   cursor: pointer;
@@ -215,6 +245,7 @@ input{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: white;
 }
 
 .tableIcon{
@@ -239,18 +270,22 @@ input{
 }
 
 .bottomLegend{
+  min-width: 972px;
   margin-top: 20px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
 }
 
 .pagination{
-  width: 100%;
+  width: 50%;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+}
 
+.numberOfPage{
+  transform: translateX(-50%);
 }
 .pagination button {
   cursor: pointer;
@@ -274,20 +309,31 @@ input{
   color: white;
 }
 
-.homeLink{
-  margin-top: 20px;
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
 }
-
-
-
-
-
 
 
 
 .react-calendar__tile--now {
   background:  rgb(53, 57, 63) !important;
-  color: white;
+  color: white !important;
 }
 
-.attention{border: 1px solid red;}
+.attention{border: 1px solid red  !important;}
+
+
+.select {
+  font-family: inherit;
+  border: 1px solid;
+  /* border-radius: 4px; */
+
+  background-color: white;
+
+  height: 50px;
+  padding: 0 20px;
+  cursor: pointer;
+}

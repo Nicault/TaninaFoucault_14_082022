@@ -13,8 +13,7 @@ import PageSize from './Pagination/pageSize'
 import Pagination from './Pagination/pagination'
 import Columns from './Datas/columns'
 
-function Table() {
-  const employees = JSON.parse(localStorage.getItem('employees'))
+function Table({ employees }) {
   const columns = React.useMemo(() => Columns, [])
   const data = React.useMemo(() => employees, [])
   // const data = React.useMemo(
@@ -41,21 +40,27 @@ function Table() {
     getTableBodyProps,
     headerGroups,
     prepareRow,
-    //rows,
-    page, // Instead of using 'rows', we'll use page,
-    // which has only the rows for the active page
-
-    // The rest of these things are super handy, too ;)
+    // @ts-ignore
+    page,
+    // @ts-ignore
     canPreviousPage,
+    // @ts-ignore
     canNextPage,
+    // @ts-ignore
     pageOptions,
-    // pageCount,
+    // @ts-ignore
     gotoPage,
+    // @ts-ignore
     nextPage,
+    // @ts-ignore
     previousPage,
+    // @ts-ignore
     setPageSize,
+    // @ts-ignore
     state: { pageIndex, pageSize, globalFilter },
+    // @ts-ignore
     preGlobalFilteredRows,
+    // @ts-ignore
     setGlobalFilter,
   } = useTable({ columns, data }, useGlobalFilter, useSortBy, usePagination)
 
@@ -76,8 +81,6 @@ function Table() {
       <table className="table" {...getTableProps()}>
         <TableHead headerGroups={headerGroups} />
 
-        {/* Apply the table body props */}
-
         <TableBody
           getTableBodyProps={getTableBodyProps}
           page={page}
@@ -87,10 +90,9 @@ function Table() {
 
       <div className="bottomLegend">
         <div>
-          Showing {firstDisplayedData} to
-          {lastDisplayedData > data.length
-            ? data.length
-            : lastDisplayedData} of {data.length} entries
+          Showing {firstDisplayedData} to{' '}
+          {lastDisplayedData > data.length ? data.length : lastDisplayedData} of{' '}
+          {data.length} entries
         </div>
 
         <Pagination
@@ -100,7 +102,6 @@ function Table() {
           nextPage={nextPage}
           canPreviousPage={canPreviousPage}
           canNextPage={canNextPage}
-          // pageCount={pageCount}
           pageOptions={pageOptions}
         />
       </div>

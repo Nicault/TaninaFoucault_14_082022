@@ -14,7 +14,7 @@ function Pagination({
 
   return (
     <div className="pagination">
-      <div>
+      <div className="numberOfPage">
         Page{' '}
         <strong>
           {pageIndex + 1} of {pageOptions.length}

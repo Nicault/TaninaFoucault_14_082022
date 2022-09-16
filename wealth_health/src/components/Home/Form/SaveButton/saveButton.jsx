@@ -1,4 +1,5 @@
 import React from 'react'
+import { addEmployee } from '../../../../utils/Datas/dataManager'
 
 function SaveButton({ profile, setIsOpen, handleCheck }) {
   // console.log(profile)
@@ -22,9 +23,7 @@ function SaveButton({ profile, setIsOpen, handleCheck }) {
     // si tous les champs sont remplis
     if (everyInputIsFilled) {
       // met à jour le local storage
-      const oldItems = JSON.parse(localStorage.getItem('employees')) || []
-      const newItems = [...oldItems, profile]
-      localStorage.setItem('employees', JSON.stringify(newItems))
+      addEmployee(profile)
 
       openModal()
     }

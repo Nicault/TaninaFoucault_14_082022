@@ -1,7 +1,13 @@
 import React from 'react'
 import States from '../../../../utils/Datas/states'
 
+import { DropdownComponent } from 'dropdown-ii'
+
 function AdressField({ handleChange, inputIsWrong }) {
+  const List = []
+  for (let i = 0; i < States.length; i++) {
+    List.push(States[i].name)
+  }
   return (
     <fieldset className="adressForm flexColumn">
       <legend>Address</legend>
@@ -24,7 +30,7 @@ function AdressField({ handleChange, inputIsWrong }) {
         onChange={handleChange}
       />
 
-      <label>State</label>
+      {/* <label>State</label>
       <select
         name="state"
         className={inputIsWrong.state ? 'attention' : ''}
@@ -33,7 +39,15 @@ function AdressField({ handleChange, inputIsWrong }) {
         {States.map((element) => (
           <option key={element.name}>{element.name}</option>
         ))}
-      </select>
+      </select> */}
+
+      <DropdownComponent
+        name="state"
+        className={inputIsWrong.state ? 'attention' : ''}
+        onChange={handleChange}
+        firstOption="State"
+        list={List}
+      />
 
       {/* <label>Zip Code</label> */}
       <input
